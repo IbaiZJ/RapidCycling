@@ -1,0 +1,41 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: root
+    MYSQL_USER: root
+    MYSQL_PASSWORD: root
+    ports:
+      - "6900:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # frontend:
+  #   build:
+  #   context: ./frontend
+  #   dockerfile: Dockerfile
+  #   container_name: frontend
+  #   ports:
+  #     - "6901:5173"
+  #   volumes:
+  #     - ./frontend:/app
+  #     - /app/node_modules
+  #   env_file:
+  #     - ./frontend/.env
+  #   # depends_on:
+  #   #   - node-red
+  #   networks:
+  #     - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local

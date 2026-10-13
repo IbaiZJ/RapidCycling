@@ -10,7 +10,6 @@ public class SecurityConfig {
 
     private static final String[] AUTH_WHITELIST = {
             "/",
-            "/home",
             "/api/**",
             "/api/v1/auth/**",
     };

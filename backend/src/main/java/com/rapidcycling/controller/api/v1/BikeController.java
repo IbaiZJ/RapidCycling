@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,9 +47,14 @@ public class BikeController {
 
     @PostMapping(value = "/bike", consumes = { "application/json" }, produces = { "application/json" })
     public ResponseEntity<Bike> createBike(@RequestBody Bike bike) {
-
         bikeService.save(bike);
         return new ResponseEntity<>(bike, HttpStatus.CREATED);
     }
+
+    // @PutMapping(value = "/bike", consumes = { "application/json" }, produces = { "application/json" })
+    // public ResponseEntity<Bike> editBike(@RequestParam Integer bikeId) {
+    //     Bike bike = new Bike();
+    //     return ResponseEntity<>(bike, HttpStatus.ACCEPTED);
+    // }
 
 }

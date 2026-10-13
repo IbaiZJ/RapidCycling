@@ -1,6 +1,7 @@
 package com.rapidcycling.model;
 
 import com.rapidcycling.enums.BikeStatus;
+import com.rapidcycling.enums.MaintenanceFlag;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,10 +21,11 @@ import lombok.Setter;
 @Table(name = "bike")
 public class Bike {
 
-    // private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int bikeId;
+    private Integer bikeId;
     private BikeStatus status;
+    private MaintenanceFlag maintenanceFlag;
 }

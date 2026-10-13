@@ -3,12 +3,12 @@ services:
     image: mysql:8
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: rapidcycling
       MYSQL_USER: rapidcycling
       MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
     ports:
-      - "6900:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     networks:

@@ -3,6 +3,8 @@ package com.rapidcycling.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.rapidcycling.model.Bike;
@@ -13,7 +15,8 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class BikeServiceImpl implements BikeService {
-
+    
+    private static final Logger log = LoggerFactory.getLogger(BikeServiceImpl.class);
     private BikeRepository bikeRepository;
 
     @Override

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/img/favicon.ico" type="image/svg+xml"/>
+    <link href="/css/tailwind.output.css" rel="stylesheet">
+    <title>Rapid Cycling</title>
+  </head>
+  <body>
+    {% comment %} <div th:replace="~{fragments/header}"></div> {% endcomment %}
+    <main layout:fragment="content"></main>
+    {% comment %} <div th:replace="~{fragments/footer}"></div> {% endcomment %}
+  </body>
+</html>

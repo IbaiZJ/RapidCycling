@@ -32,4 +32,18 @@ build/
 ### VS Code ###
 .vscode/
 
+### Local environment and secrets ###
 .env
+.env.*
+!.env.example
+
+### Node / Bun ###
+node_modules/
+
+### Logs ###
+*.log
+logs/
+
+### Operating system files ###
+.DS_Store
+Thumbs.db

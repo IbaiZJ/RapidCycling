@@ -1,0 +1,12 @@
+.git
+.gitignore
+.dockerignore
+docs/
+node_modules/
+target/
+.vscode/
+.idea/
+.env
+.env.*
+!.env.example
+*.log

@@ -1,9 +1,12 @@
 package com.rapidcycling.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.rapidcycling.enums.UserRole;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -48,6 +51,10 @@ public class User {
     @Column(nullable = false, length = 254, unique = true)
     private String email;
     
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserRole role = UserRole.USER;
+
     @Size(max = 2048)
     @Column(length = 2048)
     private String photo;

@@ -38,11 +38,13 @@ public class StationOccupancySnapshot {
     @Column(name = "captured_at", nullable = false)
     private Instant capturedAt;
 
-    @NotNull @Min(0)
+    @NotNull
+    @Min(0)
     @Column(nullable = false)
     private Integer occupiedDocks;
 
-    @NotNull @Min(1)
+    @NotNull
+    @Min(1)
     @Column(nullable = false)
     private Integer capacity;
 }

@@ -47,3 +47,6 @@ logs/
 ### Operating system files ###
 .DS_Store
 Thumbs.db
+
+.claude/
+CLAUDE.md

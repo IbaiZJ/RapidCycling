@@ -11,6 +11,12 @@ public class SecurityConfig {
     private static final String[] AUTH_WHITELIST = {
             "/",
             "/status",
+            "/error",
+            // Static files: without these, anonymous visitors get the page without styles
+            "/css/**",
+            "/fonts/**",
+            "/img/**",
+            "/js/**",
     };
 
     public SecurityConfig() {
@@ -21,6 +27,12 @@ public class SecurityConfig {
         http.authorizeHttpRequests((requests) -> requests
                 .requestMatchers(AUTH_WHITELIST).permitAll()
                 .anyRequest().authenticated())
+                // Temporary: Spring's default login page until we build our own /login screen
+                .formLogin(form -> form.permitAll())
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
+                        .permitAll())
                 // .formLogin((form) -> form
                 //         .loginPage("/login")
                 //         .loginProcessingUrl("/login")

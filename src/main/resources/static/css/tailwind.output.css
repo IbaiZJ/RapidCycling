@@ -1,12 +1,25 @@
 /*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
+@layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
     --font-sans: 'Inter', sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --radius-md: 0.375rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --spacing-md: 1rem;
   }
 }
 @layer base {
@@ -161,6 +174,94 @@
   .static {
     position: static;
   }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .flex {
+    display: flex;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-md {
+    max-width: var(--spacing-md);
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
+  .bg-\[\#14724f\] {
+    background-color: #14724f;
+  }
+  .bg-\[\#eef1f0\] {
+    background-color: #eef1f0;
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-7xl {
+    font-size: var(--text-7xl);
+    line-height: var(--tw-leading, var(--text-7xl--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .text-\[\#22282e\] {
+    color: #22282e;
+  }
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  @media (hover: hover) {
+    .hover\:bg-\[\#0f5a3e\]:hover {
+      background-color: #0f5a3e;
+    }
+  }
 }
 @font-face {
   font-family: 'Inter';
@@ -179,4 +280,15 @@
 }
 .animate-marquee {
   animation: marquee 5s linear infinite;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-font-weight: initial;
+    }
+  }
 }

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/mainLayout}">
+  <head>
+    <title th:text="#{error.403.title}">Access denied</title>
+  </head>
+  <body>
+    <main layout:fragment="content">
+      <section th:replace="~{fragments/errorPanel :: errorPanel(${status}, #{error.403.title}, #{error.403.text})}"></section>
+    </main>
+  </body>
+</html>

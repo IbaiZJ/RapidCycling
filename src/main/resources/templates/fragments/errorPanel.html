@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <!--/* Shared body of every error page: code, title, text and a link home. */-->
+    <section th:fragment="errorPanel(status, title, text)"
+             class="flex min-h-screen items-center justify-center bg-[#eef1f0] px-4 font-sans">
+      <div class="w-full max-w-md text-center">
+        <p class="text-7xl font-bold text-[#22282e]" th:text="${status}">404</p>
+        <h1 class="mt-4 text-2xl font-semibold text-[#22282e]" th:text="${title}">Title</h1>
+        <p class="mt-2 text-gray-600" th:text="${text}">Text</p>
+        <a th:href="@{/}"
+           class="mt-8 inline-block rounded-md bg-[#14724f] px-5 py-2 font-medium text-white hover:bg-[#0f5a3e]"
+           th:text="#{error.backHome}">Back home</a>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,14 +1,1 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/mainLayout}">
-  <head>
-    <title th:text="#{error.generic.title}">Something went wrong</title>
-  </head>
-  <body>
-    <!--/* Fallback for any code without its own page (500, 400, 405...). */-->
-    <main layout:fragment="content">
-      <section th:replace="~{fragments/errorPanel :: errorPanel(${status}, #{error.generic.title}, #{error.generic.text})}"></section>
-    </main>
-  </body>
-</html>
+error

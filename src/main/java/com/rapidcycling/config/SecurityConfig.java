@@ -17,6 +17,7 @@ public class SecurityConfig {
             "/fonts/**",
             "/img/**",
             "/js/**",
+            "/svg/**",
     };
 
     public SecurityConfig() {

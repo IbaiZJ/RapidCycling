@@ -1,0 +1,19 @@
+<!--/*
+  One sidebar entry. It is blue when the current URL is this section (currentPath comes from GlobalModelAdvice).
+  icon = name of a fragment in fragments/app/svg, e.g. 'bikeSVG'.
+*/-->
+<li
+  th:fragment="sidebarButton(url, name, icon)"
+  xmlns:th="http://www.thymeleaf.org"
+  th:with="active=${url == '/'} ? ${currentPath == '/'} : ${#strings.startsWith(currentPath, url)}"
+>
+  <a
+    th:href="@{${url}}"
+    th:classappend="${active} ? 'text-primary'"
+    th:attr="aria-current=${active} ? 'page' : null"
+    class="hover:text-primary relative inline-flex transform items-center gap-3 transition-all duration-300 hover:scale-110 hover:font-bold"
+  >
+    <svg th:replace="~{fragments/app/svg/__${icon}__ :: __${icon}__('h-6 w-6')}"></svg>
+    <span th:text="${name}"></span>
+  </a>
+</li>

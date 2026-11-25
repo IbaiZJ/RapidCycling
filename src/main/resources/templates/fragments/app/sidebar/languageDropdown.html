@@ -1,0 +1,26 @@
+<!--/* Shows the current language; the menu lists the other two as ?lang=xx links (LocaleConfig). Flags: static/svg/flags/<code>.svg */-->
+<div th:fragment="languageDropdown" xmlns:th="http://www.thymeleaf.org" class="relative">
+  <button
+    type="button"
+    data-dropdown="languageDropDown"
+    class="flex min-w-38 cursor-pointer items-center gap-3 rounded-lg px-2 py-2 text-base text-gray-700 hover:bg-gray-100"
+  >
+    <img th:src="@{/svg/flags/{code}.svg(code=${#locale.language})}" class="h-5 w-5 rounded-full object-cover" alt="" />
+    <span th:text="#{${'language.' + #locale.language}}">English</span>
+  </button>
+
+  <ul
+    id="languageDropDown"
+    class="absolute bottom-12 left-0 z-50 hidden w-44 overflow-hidden rounded-xl bg-white py-2 text-base font-medium shadow-xl ring-1 ring-gray-200"
+  >
+    <li th:each="lang : ${ {'en', 'es', 'eu'} }" th:unless="${lang == #locale.language}">
+      <a
+        th:href="@{${currentPath}(lang=${lang})}"
+        class="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100"
+      >
+        <img th:src="@{/svg/flags/{code}.svg(code=${lang})}" class="h-5 w-5 rounded-full object-cover" alt="" />
+        <span th:text="#{${'language.' + lang}}"></span>
+      </a>
+    </li>
+  </ul>
+</div>

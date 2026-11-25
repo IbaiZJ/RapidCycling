@@ -1,0 +1,15 @@
+<!--/*
+  Select for an enum field. options = the enum values, keyPrefix = message prefix for their labels,
+  e.g. appSelect('status', #{bike.bikeForm.status}, ${statuses}, 'app.bike.status.') -> app.bike.status.LOCK
+*/-->
+<div th:fragment="appSelect(name, label, options, keyPrefix)" xmlns:th="http://www.thymeleaf.org" class="w-full">
+  <label th:for="${name}" th:text="${label} + ' *'" class="mb-2 block text-sm font-medium text-gray-900"></label>
+  <select
+    th:field="*{__${name}__}"
+    required
+    class="focus:border-primary focus:ring-primary block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+  >
+    <option th:each="option : ${options}" th:value="${option}" th:text="#{${keyPrefix + option.name()}}"></option>
+  </select>
+  <p th:if="${#fields.hasErrors(name)}" th:errors="*{__${name}__}" class="mt-1 text-sm text-red-600"></p>
+</div>

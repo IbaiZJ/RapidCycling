@@ -1,0 +1,24 @@
+<aside
+  th:fragment="appSidebar"
+  id="sidebar"
+  xmlns:th="http://www.thymeleaf.org"
+  class="fixed left-0 z-40 mt-16 h-[calc(100vh-4rem)] w-64 -translate-x-full border-r border-gray-200 bg-white shadow-xl transition-transform md:translate-x-0"
+>
+  <nav class="flex h-full w-full flex-col justify-between p-4 py-10 pl-12 text-xl font-semibold text-gray-700">
+    <ul class="flex flex-col gap-4">
+      <li
+        th:replace="~{fragments/app/sidebar/sidebarButton :: sidebarButton('/', #{app.sidebar.home}, 'homeSVG')}"
+      ></li>
+      <li
+        th:replace="~{fragments/app/sidebar/sidebarButton :: sidebarButton('/stations', #{app.sidebar.stations}, 'locationSVG')}"
+      ></li>
+      <li
+        th:replace="~{fragments/app/sidebar/sidebarButton :: sidebarButton('/bikes', #{app.sidebar.bikes}, 'bikeSVG')}"
+      ></li>
+      <li
+        th:replace="~{fragments/app/sidebar/sidebarButton :: sidebarButton('/rides', #{app.sidebar.rides}, 'rideSVG')}"
+      ></li>
+    </ul>
+    <div th:replace="~{fragments/app/sidebar/languageDropdown :: languageDropdown}"></div>
+  </nav>
+</aside>

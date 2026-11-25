@@ -1,0 +1,43 @@
+<header
+  th:fragment="appHeader"
+  id="appHeader"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+  class="bg-primary fixed top-0 z-30 h-16 w-full px-4"
+>
+  <nav class="flex h-full w-full items-center justify-between">
+    <button
+      id="toggleSidebar"
+      type="button"
+      th:aria-label="#{app.header.openMenu}"
+      class="hover:bg-primary-hover rounded-md p-1 text-white hover:cursor-pointer md:hidden"
+    >
+      <svg th:replace="~{fragments/app/svg/menuSVG :: menuSVG('h-7 w-7')}"></svg>
+    </button>
+
+    <a th:href="@{/}" class="flex items-center gap-2 text-white">
+      <svg th:replace="~{fragments/app/svg/bikeSVG :: bikeSVG('h-9 w-9')}"></svg>
+      <span class="self-center text-3xl font-semibold whitespace-nowrap">RapidCycling</span>
+    </a>
+
+    <div class="relative flex items-center gap-4">
+      <a
+        sec:authorize="!isAuthenticated()"
+        th:href="@{/login}"
+        th:text="#{app.header.login}"
+        class="text-primary rounded-lg bg-white px-4 py-2 text-sm font-medium transition hover:bg-gray-100"
+      ></a>
+
+      <th:block sec:authorize="isAuthenticated()">
+        <button
+          type="button"
+          data-dropdown="userDropDown"
+          class="ring-primary-hover hover:ring-primary-hover flex items-center rounded-full ring-1 hover:cursor-pointer hover:ring-2"
+        >
+          <div th:replace="~{fragments/app/avatar :: avatar(${#authentication.name}, 'h-8 w-8')}"></div>
+        </button>
+        <div th:replace="~{fragments/app/header/userDropDown :: userDropDown}"></div>
+      </th:block>
+    </div>
+  </nav>
+</header>

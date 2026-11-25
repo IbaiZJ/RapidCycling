@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/tailwind.output.css" rel="stylesheet" />
+    <script src="/js/app/appHeaderSidebar.js"></script>
+    <title>RapidCycling</title>
+  </head>
+  <body class="flex flex-col font-sans">
+    <header th:replace="~{fragments/app/header/appHeader :: appHeader}"></header>
+    <section>
+      <aside th:replace="~{fragments/app/sidebar/appSidebar :: appSidebar}"></aside>
+      <section id="main" class="mt-16 overflow-y-auto md:ml-64">
+        <main layout:fragment="content" class="h-full w-full"></main>
+      </section>
+    </section>
+  </body>
+</html>

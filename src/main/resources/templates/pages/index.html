@@ -1,1 +1,16 @@
-Kaixo
+<!doctype html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/appLayout}"
+>
+  <head>
+    <title th:text="#{index.title}">RapidCycling</title>
+  </head>
+  <body>
+    <main layout:fragment="content" class="mx-auto flex max-w-7xl flex-col space-y-6 p-6">
+      <h1 th:text="#{index.welcome}" class="text-primary text-4xl font-extrabold md:text-5xl"></h1>
+      <p th:text="#{index.text}" class="text-lg text-gray-600"></p>
+    </main>
+  </body>
+</html>

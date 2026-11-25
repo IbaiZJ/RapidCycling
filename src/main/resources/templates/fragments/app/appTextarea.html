@@ -1,0 +1,16 @@
+<!--/* Multi-line field bound to the form's th:object. */-->
+<div th:fragment="appTextarea(name, label, required)" xmlns:th="http://www.thymeleaf.org" class="w-full">
+  <label
+    th:for="${name}"
+    th:text="${label} + (${required} ? ' *' : '')"
+    class="mb-2 block text-sm font-medium text-gray-900"
+  ></label>
+  <textarea
+    th:field="*{__${name}__}"
+    th:required="${required}"
+    th:classappend="${#fields.hasErrors(name)} ? 'border-red-500'"
+    rows="4"
+    class="focus:border-primary focus:ring-primary block w-full resize-none rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900"
+  ></textarea>
+  <p th:if="${#fields.hasErrors(name)}" th:errors="*{__${name}__}" class="mt-1 text-sm text-red-600"></p>
+</div>
